@@ -17,12 +17,12 @@ Con el parametro -h se ejecuta la ayuda online:
 
 Uso: dinaIP [OPCIONES] ...
 
--u	ID en dinahosting
--p	Clave de tu perfil de dinahosting
--i 	Arranca el demonio de dinaIP con la configuracion almacenada
--a	Agrega una zona a monitorizar. Sintaxis: dominio:zona1,zona2...
--l	Muestra una lista de los dominios pertenecientes a esta cuenta
--b	Elimina una zona de la monitorizacion. Sintaxis: dominio:zona_a_eliminar
--d	Detiene el demonio de dinaIP
--h	Despliega esta ayuda
--s	Muestra el status del demonio de dinaIP.
+- -u	ID en dinahosting
+- -p	Clave de tu perfil de dinahosting
+- -i 	Arranca el demonio de dinaIP con la configuracion almacenada
+- -a	Agrega una zona a monitorizar. Sintaxis: dominio:zona1,zona2...
+- -l	Muestra una lista de los dominios pertenecientes a esta cuenta
+- -b	Elimina una zona de la monitorizacion. Sintaxis: dominio:zona_a_eliminar
+- -d	Detiene el demonio de dinaIP
+- -h	Despliega esta ayuda
+- -s	Muestra el status del demonio de dinaIP.
