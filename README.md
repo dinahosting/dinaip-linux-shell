@@ -6,13 +6,28 @@
 
 **dinaIP** mantiene estable el punto de entrada a tu host para acceder a él de forma remota tecleando el nombre de tu dominio. Es muy fácil de usar e incluso te permite la gestión completa de las zonas DNS de tu dominio. Por ejemplo: puedes asignarle tu IP a la zona "micasa", de manera que si tecleas en un navegador "micasa.example.net" (o por SSH, VNC...) podrás acceder a tu PC.
 
-###Requisitos para la instalación
-#### Para OpenWrt:
-- Perl
-- SSL
-- curl (comando, necesario solamente si no se pueden instalar los modulos Crypt::SSLeay de Perl, por defecto no aparecen en OpenWrt)
+### Requisitos para la instalación
 
-###HOWTO:
+#### Para OpenWrt:
+Para un correcto funcionamiento en OpenWrt es necesario disponer de:
+ - Perl
+ - SSL
+ - curl (comando, necesario solamente si no se pueden instalar los modulos Crypt::SSLeay de Perl, por defecto no aparecen en OpenWrt)
+
+ Para instalar estas dependencias se deben ejecutar los siguientes comandos:
+
+  - Actualizar lista de paquetes con
+  ```bash
+  opkg update
+  ```
+
+  - Instalar la paquetería de perl-base, curl y SSL:
+  ```bash
+  opkg install perlbase-base perlbase-essential perlbase-cwd perlbase-b perlbase-xsloader perlbase-bytes perlbase-posix perlbase-autoloader perlbase-fcntl perlbase-tie perlbase-io perlbase-symbol perlbase-selectsaver perlbase-data perlbase-mime perlbase-time perlbase-config perlbase-integer perlbase-getopt perlbase-socket perlbase-dynaloader perlbase-errno perl-www perl-uri perl-html-tagset perl-html-parser perl-www-curl libopenssl openssl-util curl
+  ```
+
+
+### HOWTO:
 Con el parametro -h se ejecuta la ayuda online:
 
 Uso: dinaIP [OPCIONES] ...
