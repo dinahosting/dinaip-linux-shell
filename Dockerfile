@@ -7,6 +7,4 @@ RUN apk add perl-libwww curl
 ADD source /app
 WORKDIR /app
 RUN ["sh", "./install.sh"]
-ENV USUARIO user
-ENV PASSWORD prrrrrt
 ENTRYPOINT ["./entrypoint.sh"]
