@@ -1,0 +1,10 @@
+{
+   "cuenta" : "FIXME-nombre-de-cuenta",
+   "comprobar_cada" : 10,
+   "zonas" : {
+      "FIXME.tunombrededominio" : [
+         "FIXME-zona-a-comprobar",
+         "FIXME-zona-a-comprobar-2"
+      ]
+   }
+}
