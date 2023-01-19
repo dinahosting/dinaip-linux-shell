@@ -21,25 +21,26 @@ my $AVISO_RECARGA = undef;
 
 sub iniciar{
 
-	&Debug::log('Iniciando proceso...');
+        &Debug::log('Iniciando proceso...');
 
-	my $proceso = $_[0];
-	my $frecuencia = $_[1] || $FRECUENCIA;
-		
-	if(my $pid = &demonizar){
+        my $proceso = $_[0];
+        my $frecuencia = $_[1] || $FRECUENCIA;
+        my $primerPlano = $_[2] || 0;
 
-		open (F, '>', $RUTA_PID);
-		print F $pid;
-		close F; 
+        if(!$primerPlano && (my $pid = &demonizar)){
 
-		exit(0);
-	}
-	else{
+                open (F, '>', $RUTA_PID);
+                print F $pid;
+                close F;
 
-		&setDemonioCorriendo;
+                exit(0);
+        }
+        else{
 
-		&procesar;
-	}
+                &setDemonioCorriendo;
+
+                &procesar;
+        }
 }
 
 sub procesar{
