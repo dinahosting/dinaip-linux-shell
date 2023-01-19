@@ -41,3 +41,55 @@ Uso: dinaIP [OPCIONES] ...
 - -d	Detiene el demonio de dinaIP
 - -h	Despliega esta ayuda
 - -s	Muestra el status del demonio de dinaIP.
+
+
+## Contenedores
+También puedes crear una imagen de contendor a partir de este proyecto y usar y distribuir la aplicacion de esta manera.
+
+Para ello necesitas tener un entorno de contenedores (docker, podman, etc.) funcionando y utilizar la siguiente instrucción para crear la imagen.
+
+*docker*
+```
+docker build -t dinaip .
+```
+
+*podman*
+```
+podman build -t dinaip .
+```
+
+Una vez creada la imagen puedes lanzarla en tu entorno local.
+
+Para ello primero crea un fichero de variables de entorno con las credenciales y la zona que quieres monitorizar:
+
+```
+cat > env << _EOF_
+USERNAME={{ aquí tu usuario }}
+PASSWORD={{ aquí tu contraseña }}
+ZONE={{ aquí tu zona }}
+_EOF_
+```
+
+*docker*
+```
+docker run -d --name dinaip --env-file env localhost/dinaip
+```
+
+*podman*
+```
+podman run -d --name dinaip --env-file env localhost/dinaip
+```
+
+Por últimpo puedes subir la imagen a un repositorio como Docker Hub o Quay.io:
+
+*docker*
+```
+docker login hub.docker.com
+docker push localhost/dinaip docker://hub.docker.com/{{ aquí tu organización }}/dinaip
+```
+
+*podman*
+```
+podman login quay.io
+podman push localhost/dinaip docker://quay.io/{{ aquí tu organización }}/dinaip
+```
