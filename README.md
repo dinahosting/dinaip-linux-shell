@@ -39,5 +39,6 @@ Uso: dinaIP [OPCIONES] ...
 - -l	Muestra una lista de los dominios pertenecientes a esta cuenta
 - -b	Elimina una zona de la monitorizacion. Sintaxis: dominio:zona_a_eliminar
 - -d	Detiene el demonio de dinaIP
+- -f	Arranca el demonio de DinaIP en primer plano y enva logs al terminal
 - -h	Despliega esta ayuda
 - -s	Muestra el status del demonio de dinaIP.

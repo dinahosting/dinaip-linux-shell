@@ -10,6 +10,7 @@ sub BEGIN {
 
 use strict;
 use Comando;
+use Debug;
 use Demonio;
 use ConfiguracionDinapiIp;
 use Proceso;
@@ -27,10 +28,14 @@ unless($> == 0){
 
 my %opciones;
 
-getopts('isdhla:b:u:p:', \%opciones);
+getopts('isfdhla:b:u:p:', \%opciones);
 
 unless(keys(%opciones)){
 	&ayuda();
+}
+
+if(exists($opciones{f})){
+        &Debug::setPrimerPlano(1);
 }
 
 # autentificamos primero si nos pasan usuario
@@ -91,7 +96,7 @@ sub iniciar{
 
 	&Demonio::iniciar(sub {
 		&Proceso::run(@_);
-	}, $configuracion->frecuencia);
+	}, $configuracion->frecuencia, exists($opciones{f}));
 }
 
 sub pedirCredenciales{
@@ -383,6 +388,7 @@ Uso: dinaip [OPCIONES] ...
 -l	Muestra una lista de los dominios pertenecientes a esta cuenta
 -b	Elimina una zona de la monitorización. Sintaxis: dominio:zona_a_eliminar
 -d	Detiene el demonio de DinaIP
+-f      Arranca el demonio de DinaIP en primer plano y enva logs al terminal
 -h	Despliega esta ayuda
 -s	Muestra el status del demonio de DinaIP. 
 
